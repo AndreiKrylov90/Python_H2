@@ -1,15 +1,239 @@
 # числа от 1 до 9 написаны в ряд, 
 # можно вставить + и - в любое место, нужно найти все комбинации, сумма которых = 100
 
-row = [1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 23, 34, 45, 56, 67, 78, 89, 123, 234, 345, 456, 567, 678, 789, 
-          1234, 2345, 3456, 4567, 5678, 6789, 12345, 23456, 34567, 45678, 56789, -1, -2, -3, -4, -5, -6,
-            -7, -8, -9, -12, -23, -34, -45, -56, -67, -78, -89, -123, -234, -345, -456, -567, -678, -789, 
-          -1234, -2345, -3456, -4567, -5678, -6789, -12345, -23456, -34567, -45678, -56789]
-for a in row:
-    for b in row:
-        for c in row:
-            for d in row:
-                for e in row:
-                    if a + b + c + d + e == 100 and a != b and a != c and a != d and a != e and b != c and b != d and b != e and c != d and c != e and d != e:
-                        print(a, b, c, d, e)
-
+n = 5 # на сколько кусков/ интервалов делим нашу последовательность чисел
+row = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+for a in range(1, 9 - n + 2):
+    for b in range(a + 1, 9 - n + 3):
+        for c in range(b + 1, 9 - n + 4):
+            for d in range(c + 1, 9 - n + 5):
+                first = row[0]
+                index = 1
+                while index < a:
+                    first = int(str(first) + str(row[index]))
+                    index += 1
+                second = row[a]
+                index = a + 1
+                while index < b:
+                    second = int(str(second) + str(row[index]))
+                    index += 1
+                third = row[b]
+                index = b + 1
+                while index < c:
+                     third = int(str(third) + str(row[index]))
+                     index += 1
+                fourth = row[c]
+                index = c + 1
+                while index < d:
+                     fourth = int(str(fourth) + str(row[index]))
+                     index += 1
+                fifth = row[d]
+                index = d + 1
+                while index < 9:
+                     fifth = int(str(fifth) + str(row[index]))
+                     index += 1
+                if (first + second + third + fourth + fifth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth} + {fifth}")
+                if (first + second + third + fourth - fifth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth} - {fifth}")
+                if (first + second + third - fourth + fifth) == 100:
+                    print(f"{first} + {second} + {third} - {fourth} + {fifth}")
+                if (first + second + third - fourth - fifth) == 100:
+                    print(f"{first} + {second} + {third} - {fourth} - {fifth}")
+                if (first + second - third + fourth + fifth) == 100:
+                    print(f"{first} + {second} - {third} + {fourth} + {fifth}")
+                if (first + second - third + fourth - fifth) == 100:
+                    print(f"{first} + {second} - {third} + {fourth} - {fifth}")
+                if (first + second - third - fourth + fifth) == 100:
+                    print(f"{first} + {second} - {third} - {fourth} + {fifth}")
+                if (first + second - third - fourth - fifth) == 100:
+                    print(f"{first} + {second} - {third} - {fourth} - {fifth}")
+                if (first - second + third + fourth + fifth) == 100:
+                    print(f"{first} - {second} + {third} + {fourth} + {fifth}")
+                if (first - second + third + fourth - fifth) == 100:
+                    print(f"{first} - {second} + {third} + {fourth} - {fifth}")
+                if (first - second + third - fourth + fifth) == 100:
+                    print(f"{first} - {second} + {third} - {fourth} + {fifth}")
+                if (first - second + third - fourth - fifth) == 100:
+                    print(f"{first} - {second} + {third} - {fourth} - {fifth}")
+                if (first - second - third + fourth + fifth) == 100:
+                    print(f"{first} - {second} - {third} + {fourth} + {fifth}")
+                if (first - second - third + fourth - fifth) == 100:
+                    print(f"{first} - {second} - {third} + {fourth} - {fifth}")
+                if (first - second - third - fourth + fifth) == 100:
+                    print(f"{first} - {second} - {third} - {fourth} + {fifth}")
+                if (first - second - third - fourth - fifth) == 100:
+                    print(f"{first} - {second} - {third} - {fourth} - {fifth}")
+                
+n = 4 # на сколько кусков/ интервалов делим нашу последовательность чисел
+row = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+for a in range(1, 9 - n + 2):
+    for b in range(a + 1, 9 - n + 3):
+        for c in range(b + 1, 9 - n + 4):
+                first = row[0]
+                index = 1
+                while index < a:
+                    first = int(str(first) + str(row[index]))
+                    index += 1
+                second = row[a]
+                index = a + 1
+                while index < b:
+                    second = int(str(second) + str(row[index]))
+                    index += 1
+                third = row[b]
+                index = b + 1
+                while index < c:
+                     third = int(str(third) + str(row[index]))
+                     index += 1
+                fourth = row[c]
+                index = c + 1
+                while index < 9:
+                     fourth = int(str(fourth) + str(row[index]))
+                     index += 1
+                if (first + second + third + fourth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth}")
+                if (first + second + third - fourth) == 100:
+                    print(f"{first} + {second} + {third} - {fourth}")
+                if (first + second - third + fourth) == 100:
+                    print(f"{first} + {second} - {third} + {fourth}")
+                if (first + second - third - fourth) == 100:
+                    print(f"{first} + {second} - {third} - {fourth}")
+                if (first - second + third + fourth) == 100:
+                    print(f"{first} - {second} + {third} + {fourth}")
+                if (first - second + third - fourth) == 100:
+                    print(f"{first} - {second} + {third} - {fourth}")
+                if (first - second - third + fourth) == 100:
+                    print(f"{first} - {second} - {third} + {fourth}")
+                if (first - second - third - fourth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth}")
+                
+n = 3 # на сколько кусков/ интервалов делим нашу последовательность чисел
+row = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+for a in range(1, 9 - n + 2):
+    for b in range(a + 1, 9 - n + 3):
+                first = row[0]
+                index = 1
+                while index < a:
+                    first = int(str(first) + str(row[index]))
+                    index += 1
+                second = row[a]
+                index = a + 1
+                while index < b:
+                    second = int(str(second) + str(row[index]))
+                    index += 1
+                third = row[b]
+                index = b + 1
+                while index < 9:
+                     third = int(str(third) + str(row[index]))
+                     index += 1
+                if (first + second + third) == 100:
+                    print(f"{first} + {second} + {third}")
+                if (first + second - third) == 100:
+                    print(f"{first} + {second} - {third}")
+                if (first - second + third) == 100:
+                    print(f"{first} - {second} + {third}")
+                if (first - second - third) == 100:
+                    print(f"{first} - {second} - {third}")
+                
+n = 6 # на сколько кусков/ интервалов делим нашу последовательность чисел
+row = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
+for a in range(1, 9 - n + 2):
+    for b in range(a + 1, 9 - n + 3):
+        for c in range(b + 1, 9 - n + 4):
+            for d in range(c + 1, 9 - n + 5):
+                for e in range(d + 1, 9 - n + 6):
+                    first = row[0]
+                    index = 1
+                    while index < a:
+                        first = int(str(first) + str(row[index]))
+                        index += 1
+                    second = row[a]
+                    index = a + 1
+                    while index < b:
+                        second = int(str(second) + str(row[index]))
+                        index += 1
+                    third = row[b]
+                    index = b + 1
+                    while index < c:
+                        third = int(str(third) + str(row[index]))
+                        index += 1
+                    fourth = row[c]
+                    index = c + 1
+                    while index < d:
+                         fourth = int(str(fourth) + str(row[index]))
+                         index += 1
+                    fifth = row[d]
+                    index = d + 1
+                    while index < e:
+                         fifth = int(str(fifth) + str(row[index]))
+                         index += 1
+                    sixth = row[d]
+                    index = d + 1
+                    while index < 9:
+                         sxith = int(str(sixth) + str(row[index]))
+                         index += 1
+                if (first + second + third + fourth + fifth + sixth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth} + {fifth} + {sixth}")
+                if (first + second + third + fourth + fifth - sixth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth} + {fifth} - {sixth}")
+                if (first + second + third + fourth - fifth + sixth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth} - {fifth} + {sixth}")
+                if (first + second + third + fourth - fifth - sixth) == 100:
+                    print(f"{first} + {second} + {third} + {fourth} - {fifth} - {sixth}")
+                if (first + second + third - fourth + fifth + sixth) == 100:
+                    print(f"{first} + {second} + {third} - {fourth} + {fifth} + {sixth}")
+                if (first + second + third - fourth + fifth - sixth) == 100:
+                    print(f"{first} + {second} + {third} - {fourth} + {fifth} - {sixth}")
+                if (first + second + third - fourth - fifth + sixth) == 100:
+                    print(f"{first} + {second} + {third} - {fourth} - {fifth} + {sixth}")
+                if (first + second + third - fourth - fifth - sixth) == 100:
+                    print(f"{first} + {second} + {third} - {fourth} - {fifth} - {sixth}")
+                if (first + second - third + fourth + fifth + sixth) == 100:
+                    print(f"{first} + {second} - {third} + {fourth} + {fifth} + {sixth}")
+                if (first + second - third + fourth + fifth - sixth) == 100:
+                    print(f"{first} + {second} - {third} + {fourth} + {fifth} - {sixth}")
+                if (first + second - third + fourth - fifth + sixth) == 100:
+                    print(f"{first} + {second} - {third} + {fourth} - {fifth} + {sixth}")
+                if (first + second - third + fourth - fifth - sixth) == 100:
+                    print(f"{first} + {second} - {third} + {fourth} - {fifth} - {sixth}")
+                if (first + second - third - fourth + fifth + sixth) == 100:
+                    print(f"{first} + {second} - {third} - {fourth} + {fifth} + {sixth}")
+                if (first + second - third - fourth + fifth - sixth) == 100:
+                    print(f"{first} + {second} - {third} - {fourth} + {fifth} - {sixth}")
+                if (first + second - third - fourth - fifth + sixth) == 100:
+                    print(f"{first} + {second} - {third} - {fourth} - {fifth} + {sixth}")
+                if (first + second - third - fourth - fifth - sixth) == 100:
+                    print(f"{first} + {second} - {third} - {fourth} - {fifth} - {sixth}")
+                if (first - second + third + fourth + fifth + sixth) == 100:
+                    print(f"{first} - {second} + {third} + {fourth} + {fifth} + {sixth}")
+                if (first - second + third + fourth + fifth - sixth) == 100:
+                    print(f"{first} - {second} + {third} + {fourth} + {fifth} - {sixth}")
+                if (first - second + third + fourth - fifth + sixth) == 100:
+                    print(f"{first} - {second} + {third} + {fourth} - {fifth} + {sixth}")
+                if (first - second + third + fourth - fifth - sixth) == 100:
+                    print(f"{first} - {second} + {third} + {fourth} - {fifth} - {sixth}")
+                if (first - second + third - fourth + fifth + sixth) == 100:
+                    print(f"{first} - {second} + {third} - {fourth} + {fifth} + {sixth}")
+                if (first - second + third - fourth + fifth - sixth) == 100:
+                    print(f"{first} - {second} + {third} - {fourth} + {fifth} - {sixth}")
+                if (first - second + third - fourth - fifth + sixth) == 100:
+                    print(f"{first} - {second} + {third} - {fourth} - {fifth} + {sixth}")
+                if (first - second + third - fourth - fifth - sixth) == 100:
+                    print(f"{first} - {second} + {third} - {fourth} - {fifth} - {sixth}")
+                if (first - second - third + fourth + fifth + sixth) == 100:
+                    print(f"{first} - {second} - {third} + {fourth} + {fifth} + {sixth}")
+                if (first - second - third + fourth + fifth - sixth) == 100:
+                    print(f"{first} - {second} - {third} + {fourth} + {fifth} - {sixth}")
+                if (first - second - third + fourth - fifth + sixth) == 100:
+                    print(f"{first} - {second} - {third} + {fourth} - {fifth} + {sixth}")
+                if (first - second - third + fourth - fifth - sixth) == 100:
+                    print(f"{first} - {second} - {third} + {fourth} - {fifth} - {sixth}")
+                if (first - second - third - fourth + fifth + sixth) == 100:
+                    print(f"{first} - {second} - {third} - {fourth} + {fifth} + {sixth}")
+                if (first - second - third - fourth + fifth - sixth) == 100:
+                    print(f"{first} - {second} - {third} - {fourth} + {fifth} - {sixth}")
+                if (first - second - third - fourth - fifth + sixth) == 100:
+                    print(f"{first} - {second} - {third} - {fourth} - {fifth} + {sixth}")
+                if (first - second - third - fourth - fifth - sixth) == 100:
+                    print(f"{first} - {second} - {third} - {fourth} - {fifth} - {sixth}")
+                
